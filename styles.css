@@ -1,0 +1,197 @@
+/*
+  Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+  - The "symbol *" part is to solve Firefox SVG sprite bug
+*/
+*:where(:not(iframe, canvas, img, svg, video):not(svg *, symbol *)) {
+  all: unset;
+  display: revert;
+}
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/* Reapply the pointer cursor for anchor tags */
+a {
+  cursor: revert;
+}
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+  list-style: none;
+}
+/* For images to not be able to exceed their container */
+img {
+  max-width: 100%;
+}
+/* removes spacing between cells in tables */
+table {
+  border-collapse: collapse;
+}
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+  white-space: revert;
+}
+/* fix the feature of 'hidden' attribute.
+ display:revert; revert to element instead of attribute */
+:where([hidden]){
+  display:none;
+}
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+  -webkit-user-drag: element;
+}
+
+
+/* ---------GENERAL STYLING--------- */
+:root {
+  --color-sb: hsl(215, 51%, 70%);
+  --color-c: hsl(178, 100%, 50%);
+  --color-db3: hsl(217, 54%, 11%);
+  --color-db2: hsl(216, 50%, 16%);
+  --color-db1: hsl(215, 32%, 27%);
+  --color-w: hsl(0, 0%, 100%);
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--color-db3);
+}
+
+p {
+  font-size: 18px;
+  color: var(--color-sb);
+  font-weight: 300;
+}
+
+h3 {
+  color: var(--color-w);
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding: 1rem 0;
+}
+
+h3:hover {
+  cursor: pointer;
+  color: var(--color-c);
+}
+
+img {
+  border-radius: 0.6rem;
+}
+
+.img-overlay {
+  position: relative;
+  display: inline-block;
+}
+.img-overlay img {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+.img-overlay .cube-svg {
+  transition: .1s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+  background-color: var(--color-c)
+}
+.img-overlay .cube-svg:hover {
+  cursor: pointer;
+  opacity: 0.7;
+  border-radius: 0.6rem;
+}
+
+
+.cube-svg {
+  display: inline-block;     
+  position: relative;    
+  z-index: 1;     
+  padding: 7.9em;
+}
+
+hr {
+  color: var(--color-db1);
+  border: 1px solid;
+  margin: 1rem 0;
+}
+
+.small-svg {
+  margin-right: 0.5rem;
+  transition: all 0.5s ease-in;
+}
+
+.small-svg:hover {
+  transform: rotate(360deg);
+  transition: all 1s ease-in-out;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.nft-card {
+  height: 580px;
+  width: 350px;
+  background-color: var(--color-db2);
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+
+.left {
+  display: inline;
+  color: var(--color-c);
+  font-weight: 400;
+  line-height: 1;
+  font-size: 0.9rem;
+}
+
+.right {
+  display: inline;
+  margin-left: 7.9rem;
+  line-height: 1;
+  font-size: 0.9rem;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+}
+
+.name {
+  color: var(--color-w);
+}
+
+.name:hover {
+  cursor: pointer;
+  color: var(--color-c);
+}
+
+.creation {
+  font-weight: 300;
+  font-size: 0.95rem;
+  color: var(--color-sb);
+}
+
+.card-text {
+  line-height: 1.4;
+  padding-bottom: 1rem;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
