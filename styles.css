@@ -154,19 +154,21 @@ hr {
   color: var(--color-c);
   font-weight: 400;
   line-height: 1;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .right {
   display: inline;
-  margin-left: 7.9rem;
+  margin-left: 6.7rem;
   line-height: 1;
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .avatar {
   width: 40px;
   height: 40px;
+  border: 1px solid var(--color-w);
+  border-radius: 50%;
 }
 
 .name {
